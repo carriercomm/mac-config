@@ -1,0 +1,70 @@
+[alias]
+    st = status
+    br = branch
+    rb = svn rebase
+    ci = commit
+    co = checkout
+    sub = submodule
+    oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | sed -ne \"s/^ //p\" | head -1' -
+    branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
+    branchlog = !sh -c \"git log `git oldest-ancestor`..\"
+    diverges = !zsh -c 'git rev-list --boundary $1...$2 | grep ^- | cut -c2-'
+    merge = merge --no-ff
+    pull = pull --no-ff
+    oneline = log --pretty=oneline
+    logdate = log --pretty=format:'%ad %h %aN %s';echo
+    la = log --pretty=\"format:%ad %h (%an): %s \" --date=short
+    # lad = log --pretty=format:'[%ad] %h (%an) %s ' --date=short
+    lad = log --pretty=format:'%Cgreen[%ad]%Creset %C(yellow)%h%Creset %C(bold blue)(%an)%Creset %s ' --date=short
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    sh = diff-tree --no-commit-id --name-only -r
+
+[pager]
+    diff =
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[diff]
+    external = $HOME/bin/git_diff_wrapper
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[status]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[branch]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[merge]
+    tool = araxismerge
+
+[mergetool "araxismerge"]
+    cmd = "/usr/bin/compare -3 -merge -wait $LOCAL $BASE $REMOTE $MERGED"
+    path = /usr/bin/
+
+[http]
+    sslverify = false
+
+[push]
+        default = tracking
+[user]
+	name = Kevin Luo
+	email = kevin_luo@miiicasa.com
+[core]
+	excludesfile = $HOME/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
