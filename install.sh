@@ -12,7 +12,7 @@ die() {
 
 [ -e $CONFIG_HOME ] && die "$CONFIG_HOME already exists."
 
-git clone https://github.com/xfalcons/mac-config.git "$CONFIG_HOME"
+git clone git@github.com:xfalcons/mac-config.git "$CONFIG_HOME"
 
 cd ~
 [ ! -d "bin" ] && mkdir -p bin
