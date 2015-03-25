@@ -19,4 +19,4 @@ Backup your original configuration files if necessary.
      
 Install everything with one-line command.
 
-     wget -O - https://raw.github.com/xfalcons/linux-config/master/install.sh | sh; sh ~/.config/git_setting.sh
+     wget -O - https://raw.github.com/xfalcons/mac-config/master/install.sh | sh
