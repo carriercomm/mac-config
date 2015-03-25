@@ -12,6 +12,7 @@ die() {
 
 [ -e $CONFIG_HOME ] && die "$CONFIG_HOME already exists."
 
+git clone git@github.com:xfalcons/bash-git-prompt.git .bash-git-prompt
 git clone git@github.com:xfalcons/mac-config.git "$CONFIG_HOME"
 
 cd ~
