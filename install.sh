@@ -40,4 +40,7 @@ ln -s .mac-config/bin/git_diff_wrapper bin/git_diff_wrapper
 
 # wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
 
+# On Ubuntu, there is no /usr/bin/ctags in default
+sudo apt-get install exuberant-ctags
+
 echo "$HOME configuration file has been installed."
