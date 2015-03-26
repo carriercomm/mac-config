@@ -11,7 +11,7 @@
 # as last entry source the gitprompt script
 # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
 # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
-GIT_PROMPT_THEME=Single_line
+GIT_PROMPT_THEME=Solarized
 
 # put this in your .bash_profile
 #if [ $ITERM_SESSION_ID ]; then
