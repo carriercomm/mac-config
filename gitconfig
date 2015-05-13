@@ -10,7 +10,7 @@
     branchlog = !sh -c \"git log `git oldest-ancestor`..\"
     diverges = !zsh -c 'git rev-list --boundary $1...$2 | grep ^- | cut -c2-'
     merge = merge --no-ff
-    pull = pull --no-ff
+    pull = pull --no-ff --rebase
     oneline = log --pretty=oneline
     logdate = log --pretty=format:'%ad %h %aN %s';echo
     la = log --pretty=\"format:%ad %h (%an): %s \" --date=short
