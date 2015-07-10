@@ -1,8 +1,11 @@
 # Set architecture flags
 export ARCHFLAGS="-arch x86_64"
 
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/dev/golang
+
 # Ensure user-installed binaries take precedence
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin::$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/php5/bin:$GOROOT/bin:$GOPATH/bin:/usr/bin:/bin:/usr/sbin:/sbin::$PATH
 
 # Setup JAVA_HOME on MAC
 if [ -e "/usr/libexec/java_home" ] 

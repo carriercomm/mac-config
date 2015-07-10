@@ -38,3 +38,11 @@ gitprompt="$HOME/.bash-git-prompt/gitprompt.sh"
 
 rvmscript="$HOME/.rvm/scripts/rvm"
 [[ -s $rvmscript ]] && source $rvmscript 
+
+boot2docker="/usr/local/bin/boot2docker"
+#[[ -s $boot2docker ]] && eval "$(boot2docker shellinit)"
+if [[ -s $boot2docker ]]; then
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+    export DOCKER_CERT_PATH=/Users/kevin_luo/.boot2docker/certs/boot2docker-vm
+    export DOCKER_TLS_VERIFY=1
+fi
